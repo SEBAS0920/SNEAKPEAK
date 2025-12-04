@@ -1,0 +1,906 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    line-height: 1.6;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0 15px;
+}
+
+/* HEADER SUPERIOR - NEGRO */
+.top-header {
+    background-color: #0f0f0f;
+    color: white;
+    padding: 8px 0;
+    border-bottom: 1px solid #333333;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    width: 100%;
+}
+
+.top-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.top-links {
+    display: flex;
+    gap: 20px;
+}
+
+.top-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.top-links a:hover {
+    color: #cccccc;
+}
+
+.user-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.user-actions a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.3s ease;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.user-actions a:hover {
+    color: white;
+}
+
+/* HEADER PRINCIPAL - NEGRO */
+header {
+    background-color: #0f0f0f;
+    color: white;
+    padding: 15px 0;
+    width: 100%;
+    border-bottom: 1px solid #333333;
+    position: relative;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 15px;
+}
+
+/* GRUPO IZQUIERDO */
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+/* MENÚ HAMBURGUESA - SIN BORDES Y MEJORADO */
+.hamburger-menu {
+    flex-shrink: 0;
+    position: relative;
+}
+
+.hamburger-icon {
+    width: 40px;
+    height: 40px;
+    background: #0f0f0f;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 6px;
+}
+
+.hamburger-icon:hover {
+    background: #333333;
+    transform: scale(1.05);
+}
+
+.hamburger-icon span {
+    display: block;
+    width: 20px;
+    height: 2px; /* Mismo grosor consistente */
+    background: #fff;
+    margin: 3px 0; /* Espaciado uniforme */
+    border-radius: 1px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-icon:hover span {
+    background: #cccccc;
+}
+
+/* MENÚ DESPLEGABLE MÓVIL - MEJORADO */
+.mobile-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #0f0f0f;
+    width: 220px;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    z-index: 1000;
+    margin-top: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* ÁREA DE ACTIVACIÓN EXPANDIDA */
+.hamburger-menu::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -50px; /* Área extendida hacia abajo */
+    z-index: 999;
+    display: none;
+}
+
+.hamburger-menu:hover::before {
+    display: block;
+}
+
+.hamburger-menu:hover .mobile-nav {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.1s; /* Retraso para suavizar */
+}
+
+/* MANTENER EL MENÚ ABIERTO AL PASAR SOBRE ÉL */
+.mobile-nav:hover {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #333333;
+    transition: background 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.nav-item:hover {
+    background: #333333;
+}
+
+.nav-item:last-child {
+    border-bottom: none;
+}
+
+.nav-item i {
+    margin-right: 10px;
+    width: 16px;
+    text-align: center;
+}
+
+/* TÍTULO SNEAKPEAK */
+.main-title {
+    font-family: 'Creepster', cursive;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    text-shadow:
+        2px 2px 0 #000,
+        4px 4px 0 rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+/* BARRA DE BÚSQUEDA */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: #0f0f0f;
+    border: 1px solid #ffffff;
+    border-radius: 0;
+    padding: 2px;
+    width: 280px;
+    transition: all 0.1s ease;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.search-bar:focus-within {
+    border-color: #cccccc;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.15);
+}
+
+.search-input {
+    background: #0f0f0f;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    width: 100%;
+    outline: none;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    border-radius: 0;
+}
+
+.search-input::placeholder {
+    color: #cccccc;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 0.85rem;
+}
+
+/* ENCABEZADO DE ARTÍCULOS */
+.articles-header {
+    background-color: #000000;
+    padding: 20px 0 15px 0;
+    border-bottom: 1px solid #333333;
+}
+
+.popular-title {
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 0.8rem;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0 15px;
+}
+
+/* GRID DE ARTÍCULOS MINIMALISTA */
+.minimal-articles-section {
+    padding: 15px 0 40px 0;
+    background-color: #000000;
+}
+
+.minimal-articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    padding: 0 15px;
+}
+
+.minimal-article {
+    background-color: transparent;
+    transition: transform 0.3s ease;
+}
+
+.minimal-article:hover {
+    transform: translateY(-3px);
+}
+
+.minimal-image {
+    height: 100px;
+    background-color: transparent;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #333333;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666666;
+    font-size: 0.7rem;
+}
+
+.minimal-info {
+    text-align: center;
+}
+
+.minimal-info h3 {
+    font-size: 0.75rem;
+    color: #ffffff;
+    margin-bottom: 4px;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.minimal-info p {
+    color: #cccccc;
+    font-size: 0.7rem;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+/* SECCIÓN: Winter Collection */
+.winter-collection-section {
+    padding: 40px 0 30px 0;
+    background-color: #000000;
+    border-top: 1px solid #333333;
+    margin-top: 20px;
+}
+
+.winter-title {
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 0.8rem;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0 15px;
+    margin-bottom: 20px;
+}
+
+.winter-articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    padding: 0 15px;
+}
+
+/* SECCIÓN: Summer Collection */
+.summer-collection-section {
+    padding: 40px 0 30px 0;
+    background-color: #000000;
+    border-top: 1px solid #333333;
+    margin-top: 20px;
+}
+
+.summer-title {
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 0.8rem;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0 15px;
+    margin-bottom: 20px;
+}
+
+.summer-articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    padding: 0 15px;
+}
+
+/* FOOTER - NEGRO */
+footer {
+    background-color: #0f0f0f;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 0;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    border-top: 1px solid #333333;
+}
+
+footer p {
+    margin-bottom: 10px;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    color: #cccccc;
+}
+
+/* Estilos para enlace activo */
+.top-links a.active {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+}
+
+/* Estilos para páginas específicas */
+.section-title {
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 15px;
+}
+
+/* Estilos para sección de Marcas */
+.brands-section {
+    padding: 40px 0;
+    background: #000;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    padding: 0 15px;
+}
+
+.brand-item {
+    background: #1a1a1a;
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid #333;
+    transition: transform 0.3s ease;
+}
+
+.brand-item:hover {
+    transform: translateY(-5px);
+    border-color: #555;
+}
+
+.brand-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+    font-family: 'Arial Black', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.brand-item p {
+    color: #cccccc;
+    font-size: 0.9rem;
+}
+
+/* Estilos para tabla de tallas */
+.size-guide-section {
+    padding: 40px 0;
+    background: #000;
+}
+
+.size-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.measurement-guide {
+    background: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #333;
+}
+
+.measurement-guide h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.measurement-guide p {
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+.size-chart {
+    background: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.size-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.size-table th,
+.size-table td {
+    border: 1px solid #333;
+    padding: 12px;
+    text-align: center;
+    color: #fff;
+}
+
+.size-table th {
+    background: #0f0f0f;
+    font-weight: 600;
+}
+
+.size-table tr:nth-child(even) {
+    background: #222;
+}
+
+/* Estilos para nuevos lanzamientos */
+.new-releases-section {
+    padding: 40px 0;
+    background: #000;
+}
+
+.releases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    padding: 0 15px;
+}
+
+.release-item {
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: transform 0.3s ease;
+}
+
+.release-item:hover {
+    transform: translateY(-5px);
+    border-color: #555;
+}
+
+.release-image {
+    height: 200px;
+    background: #2a2a2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #333;
+}
+
+.release-info {
+    padding: 20px;
+}
+
+.release-info h3 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.release-info p {
+    color: #cccccc;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.release-info .price {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .top-header .container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    .top-links, .user-actions {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+    
+    .top-links a, .user-actions a {
+        font-size: 0.75rem;
+    }
+    
+    .header-content {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        padding: 0 10px;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+        order: 1;
+        flex-basis: 100%;
+        margin-top: 10px;
+        text-align: center;
+    }
+    
+    .left-section {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .search-bar {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    .minimal-articles-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    .minimal-image {
+        height: 90px;
+    }
+    
+    .popular-title {
+        padding: 0 10px;
+    }
+    
+    .winter-collection-section {
+        padding: 30px 0 20px 0;
+        margin-top: 15px;
+    }
+    
+    .winter-articles-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    .winter-title {
+        padding: 0 10px;
+    }
+    
+    .summer-collection-section {
+        padding: 30px 0 20px 0;
+        margin-top: 15px;
+    }
+    
+    .summer-articles-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    .summer-title {
+        padding: 0 10px;
+    }
+    
+    .mobile-nav {
+        width: 200px;
+    }
+    
+    .brands-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 0 10px;
+    }
+    
+    .brand-item {
+        padding: 20px;
+    }
+    
+    .releases-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 8px;
+    }
+    
+    .top-header .container {
+        padding: 0 8px;
+    }
+    
+    .header-content {
+        padding: 0 8px;
+    }
+    
+    .top-links, .user-actions {
+        gap: 8px;
+    }
+    
+    .top-links a, .user-actions a {
+        font-size: 0.7rem;
+    }
+    
+    .main-title {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .search-bar {
+        max-width: 200px;
+    }
+    
+    .hamburger-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .hamburger-icon span {
+        width: 18px;
+        height: 2px; /* Mantener grosor consistente */
+        margin: 2.5px 0;
+    }
+    
+    .articles-header {
+        padding: 15px 0 10px 0;
+    }
+    
+    .minimal-articles-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding: 0 8px;
+    }
+    
+    .minimal-image {
+        height: 80px;
+    }
+    
+    .minimal-info h3 {
+        font-size: 0.7rem;
+    }
+    
+    .minimal-info p {
+        font-size: 0.65rem;
+    }
+    
+    .popular-title {
+        padding: 0 8px;
+    }
+    
+    .winter-collection-section {
+        padding: 25px 0 15px 0;
+        margin-top: 10px;
+    }
+    
+    .winter-articles-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding: 0 8px;
+    }
+    
+    .winter-title {
+        padding: 0 8px;
+    }
+    
+    .summer-collection-section {
+        padding: 25px 0 15px 0;
+        margin-top: 10px;
+    }
+    
+    .summer-articles-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding: 0 8px;
+    }
+    
+    .summer-title {
+        padding: 0 8px;
+    }
+    
+    .mobile-nav {
+        width: 180px;
+    }
+    
+    .brands-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 0 8px;
+    }
+    
+    .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .size-table th,
+    .size-table td {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .minimal-articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 5px;
+    }
+    
+    .container {
+        padding: 0 5px;
+    }
+    
+    .top-header .container {
+        padding: 0 5px;
+    }
+    
+    .header-content {
+        padding: 0 5px;
+    }
+    
+    .popular-title {
+        padding: 0 5px;
+    }
+    
+    .winter-articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 5px;
+    }
+    
+    .winter-title {
+        padding: 0 5px;
+    }
+    
+    .summer-articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 5px;
+    }
+    
+    .summer-title {
+        padding: 0 5px;
+    }
+    
+    .mobile-nav {
+        width: 160px;
+    }
+}
+
+
+
+
+
+/* Estilos para los enlaces de productos */
+.minimal-articles-grid a.minimal-article {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.minimal-articles-grid a.minimal-article:hover {
+    transform: translateY(-3px);
+    text-decoration: none;
+    color: inherit;
+}
+
+.minimal-articles-grid a.minimal-article:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+.minimal-articles-grid a.minimal-article:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+
+a.minimal-article {
+    text-decoration: none;
+    color: inherit;
+}

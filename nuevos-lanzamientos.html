@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuevos Lanzamientos - SNEAKPEAK</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Creepster&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .new-releases-section {
+        padding: 40px 0;
+        background: #000;
+      }
+
+      .new-releases-section .releases-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        padding: 0 15px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .new-releases-section .release-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: transparent;
+        border: none;
+        transition: transform 0.3s ease;
+      }
+
+      .new-releases-section .release-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .new-releases-section .release-image {
+        height: 350px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #fff;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+
+      .new-releases-section .release-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .new-releases-section .release-info {
+        text-align: left;
+        background: transparent;
+        padding: 0;
+        width: 100%;
+        min-height: 120px;
+      }
+
+      .new-releases-section .release-info h3 {
+        font-size: 1rem;
+        color: #ffffff;
+        margin-bottom: 15px;
+        font-weight: 700;
+        font-family: "Roboto Condensed", sans-serif;
+        letter-spacing: 0.5px;
+        text-align: center;
+        width: 100%;
+      }
+
+      .new-releases-section .release-info p {
+        color: #cccccc;
+        margin-bottom: 8px;
+        font-size: 0.85rem;
+        font-family: "Roboto Condensed", sans-serif;
+        font-weight: 400;
+        text-align: justify;
+        line-height: 1.5;
+        text-justify: inter-word;
+      }
+
+      .new-releases-section .release-info .price {
+        color: #ffffff;
+        font-size: 1.1rem;
+        font-weight: 700;
+        font-family: "Roboto Condensed", sans-serif;
+        letter-spacing: 0.5px;
+        text-align: center;
+        margin-bottom: 15px;
+        width: 100%;
+      }
+
+      .new-releases-section .release-info .description {
+        color: #999999;
+        font-size: 0.8rem;
+        font-family: "Roboto Condensed", sans-serif;
+        font-weight: 400;
+        text-align: left;
+        line-height: 1.4;
+        margin-top: 10px;
+        min-height: 60px;
+      }
+
+      .section-title {
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 1.4rem;
+        color: #ffffff;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 40px;
+        padding: 0 15px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+      }
+
+      .top-links {
+        justify-content: center;
+        gap: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Superior -->
+    <div class="top-header">
+      <div class="container">
+        <div class="top-links">
+          <!-- Se eliminó el enlace "NEW IN SNEAKERS" -->
+          <a href="nuevos-lanzamientos.html" class="active"
+            >PROXIMOS LANZAMIENTOS</a
+          >
+          <a href="guia-tallas.html">GUÍA DE TALLAS</a>
+        </div>
+        <div class="user-actions">
+          <a href="#"><i class="fas fa-user"></i> Iniciar sesion</a>
+          <a href="#"><i class="fas fa-shopping-basket"></i> Mi carrito</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header Principal -->
+    <header>
+      <div class="container header-content">
+        <div class="left-section">
+          <div class="hamburger-menu">
+            <div class="hamburger-icon">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="mobile-nav">
+              <a href="#" class="nav-item">
+                <i class="fas fa-male"></i> Hombre
+              </a>
+              <a href="#" class="nav-item">
+                <i class="fas fa-female"></i> Mujer
+              </a>
+              <a href="#" class="nav-item">
+                <i class="fas fa-tshirt"></i> Accesorios
+              </a>
+            </div>
+          </div>
+          <h1 class="main-title">SNEAKPEAK</h1>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Buscar" class="search-input" />
+        </div>
+      </div>
+    </header>
+
+    <!-- Contenido de Nuevos Lanzamientos -->
+    <section class="new-releases-section">
+      <div class="container">
+        <h2 class="section-title">Próximos Lanzamientos</h2>
+        <div class="releases-grid">
+          <div class="release-item">
+            <div class="release-image">
+              <img
+                src="nuevos-lanzamientos/jordan-blancas.png"
+                alt="Air Jordan 1 Retro High OG"
+              />
+            </div>
+            <div class="release-info">
+              <h3>AIR JORDAN 3 RETRO SAIL CEMENT GREY</h3>
+
+              <p>
+                Los Jordan 3 Retro Sail Cement Grey Mujer reimaginan un clásico
+                del sneaker culture con una combinación elegante de tonos Sail y
+                Cement Grey. Fabricados en cuero premium y con el icónico
+                elephant print, ofrecen estilo y calidad en cada detalle. Su
+                entresuela con tecnología Air garantiza comodidad ligera para el
+                uso diario. Una opción exclusiva para mujeres en Colombia que
+                buscan autenticidad y un diseño sofisticado.
+              </p>
+
+              <div class="price">$249.99</div>
+              <div class="description">
+                <!-- Espacio para texto adicional de 3 líneas -->
+              </div>
+            </div>
+          </div>
+          <div class="release-item">
+            <div class="release-image">
+              <img
+                src="nuevos-lanzamientos/jordan-retro-azul.png"
+                alt="Yeezy Boost 350 V2"
+              />
+            </div>
+            <div class="release-info">
+              <h3>JORDAN 1 RETRO HIGH OG RARE AIR</h3>
+
+              <p>
+                Las Jordan 1 Retro High OG Rare Air (DZ5485-100) son una edición
+                especial que celebra el legado de Michael Jordan con un diseño
+                elegante y funcional. Fabricadas en cuero premium, destacan por
+                su combinación de colores en blanco, negro y rojo, que aportan
+                un estilo clásico. La tecnología Nike Air en la entresuela
+                garantiza máxima comodidad, mientras la suela de goma asegura
+                tracción y durabilidad. Perfectas para los amantes de Jordan que
+                buscan destacar en el mercado panameño.
+              </p>
+
+              <div class="price">$417.99</div>
+              <div class="description"></div>
+            </div>
+          </div>
+          <div class="release-item">
+            <div class="release-image">
+              <img
+                src="nuevos-lanzamientos/nike-cortez-blancas.png"
+                alt="Nike Dunk Low Retro"
+              />
+            </div>
+            <div class="release-info">
+              <h3>NIKE CORTEZ LEATHER</h3>
+
+              <p>
+                Los Nike Cortez LTR reinventan el legendario modelo de 1972 con
+                una actualización en cuero premium, ofreciendo mayor durabilidad
+                y un look sofisticado. Su entresuela de EVA proporciona
+                amortiguación ligera, mientras que la suela de goma con patrón
+                en espiga garantiza tracción y estabilidad. Su diseño versátil y
+                atemporal los convierte en la opción perfecta para cualquier
+                ocasión, desde un outfit casual hasta un look deportivo con
+                historia. Un clásico imprescindible en el sneaker game.
+              </p>
+
+              <div class="price">$95.99</div>
+              <div class="description">
+                <!-- Espacio para texto adicional de 3 líneas -->
+              </div>
+            </div>
+          </div>
+          <div class="release-item">
+            <div class="release-image">
+              <img
+                src="nuevos-lanzamientos/nike-naranja.png"
+                alt="Adidas Ultraboost 5.0"
+              />
+            </div>
+            <div class="release-info">
+              <h3>AIR JORDAN 1 LOW OG ROOKIE OF THE YEAR</h3>
+
+              <p>
+                Las Jordan 1 Low OG Rookie of the Year celebran el legado de
+                Michael Jordan con un diseño inspirado en su premiada temporada
+                como novato. Este modelo presenta una combinación elegante de
+                cuero premium en tonos blanco, negro y dorado, evocando un
+                estilo clásico y sofisticado. La tecnología Nike Air en la
+                entresuela asegura comodidad superior, mientras la suela de goma
+                garantiza tracción y durabilidad. Ideales para el uso diario y
+                los amantes del estilo urbano en panama, estas zapatillas son un
+                homenaje al ícono del baloncesto.
+              </p>
+
+              <div class="price">$169.99</div>
+              <div class="description"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 SNEAKPEAK. Todos los derechos reservados.</p>
+        <p>Contacto: info@sneakpeak.com | Tel: +1 234 567 890</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NOMBRE_DEL_PRODUCTO - SNEAKPEAK</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto+Condensed:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .product-detail-section {
+        padding: 40px 0;
+        background-color: #000000;
+      }
+
+      .product-container {
+        max-width: none; /* Eliminamos el max-width */
+        margin: 0;
+        padding: 0 0 0 40px; /* 40px desde el borde izquierdo */
+        display: grid;
+        grid-template-columns: 379px 1fr;
+        gap: 15px;
+        align-items: start;
+      }
+
+      .product-images {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .main-image {
+        width: 379px;
+        height: 568px;
+        background-color: #1a1a1a;
+        border: 1px solid #333333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin-left: 0;
+      }
+
+      .main-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .product-info {
+        color: #ffffff;
+        font-family: "Roboto Condensed", sans-serif;
+        padding-left: 0;
+        padding-right: 40px; /* Balance con el padding izquierdo */
+      }
+
+      .product-title {
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .price-container {
+        margin-bottom: 25px;
+      }
+
+      .current-price {
+        color: #ffffff;
+        font-size: 1.4rem;
+        font-weight: 700;
+        font-family: "Roboto Condensed", sans-serif;
+        margin-right: 10px;
+      }
+
+      .taxes {
+        font-size: 0.9rem;
+        color: #cccccc;
+        font-family: "Roboto Condensed", sans-serif;
+        font-weight: 400;
+        display: inline;
+      }
+
+      .product-description {
+        font-family: "Roboto Condensed", sans-serif;
+        line-height: 1.6;
+        color: #cccccc;
+        margin-bottom: 25px;
+        text-align: justify;
+        font-weight: 400;
+      }
+
+      .size-section {
+        margin-bottom: 25px;
+      }
+
+      .size-title {
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+
+      .gender-label {
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 0.9rem;
+        color: #cccccc;
+        margin-bottom: 10px;
+        font-weight: 400;
+      }
+
+      .size-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .size-option {
+        width: 50px;
+        height: 40px;
+        border: 1px solid #333333;
+        background-color: #1a1a1a;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 400;
+        transition: all 0.3s ease;
+      }
+
+      .size-option:hover {
+        border-color: #ffffff;
+      }
+
+      .size-option.selected {
+        border-color: #ffffff;
+        background-color: #333333;
+      }
+
+      .size-guide-link {
+        color: #cccccc;
+        font-size: 1rem;
+        text-decoration: underline;
+        cursor: pointer;
+        font-family: "Roboto Condensed", sans-serif;
+        font-weight: 400;
+      }
+
+      .color-section {
+        margin-bottom: 30px;
+      }
+
+      .color-title {
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+
+      .color-text {
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 0.9rem;
+        color: #cccccc;
+        margin-top: 10px;
+        font-weight: 400;
+      }
+
+      .add-to-cart {
+        width: 100%;
+        padding: 15px;
+        background-color: #ffffff;
+        color: #000000;
+        border: none;
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .add-to-cart:hover {
+        background-color: #cccccc;
+      }
+
+      @media (max-width: 768px) {
+        .product-container {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          padding: 0 15px;
+        }
+
+        .product-info {
+          padding-right: 0;
+        }
+
+        .main-image {
+          width: 100%;
+          height: 400px;
+        }
+
+        .product-title {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Superior -->
+    <div class="top-header">
+      <div class="container">
+        <div class="top-links">
+          <a href="../nuevos-lanzamientos.html">PROXIMOS LANZAMIENTOS</a>
+          <a href="../guia-tallas.html">GUÍA DE TALLAS</a>
+        </div>
+        <div class="user-actions">
+          <a href="#"><i class="fas fa-user"></i> Iniciar sesion</a>
+          <a href="#"><i class="fas fa-shopping-basket"></i> Mi carrito</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header Principal -->
+    <header>
+      <div class="container header-content">
+        <div class="left-section">
+          <div class="hamburger-menu">
+            <div class="hamburger-icon">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="mobile-nav">
+              <a href="../hombre.html" class="nav-item">
+                <i class="fas fa-male"></i> Hombre
+              </a>
+              <a href="../mujer.html" class="nav-item">
+                <i class="fas fa-female"></i> Mujer
+              </a>
+              <a href="../accesorios.html" class="nav-item">
+                <i class="fas fa-tshirt"></i> Accesorios
+              </a>
+            </div>
+          </div>
+          <h1 class="main-title">SNEAKPEAK</h1>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Buscar" class="search-input" />
+        </div>
+      </div>
+    </header>
+
+    <!-- Detalle del Producto -->
+    <section class="product-detail-section">
+      <div class="product-container">
+        <!-- Columna izquierda - Solo imagen principal -->
+        <div class="product-images">
+          <div class="main-image">
+            <img
+              src="../imagenes-summer-grandes/sueter-blanco.png"
+              alt="FALDA AZUL"
+            />
+          </div>
+          <!-- Se eliminó el contenedor de thumbnails -->
+        </div>
+
+        <div class="product-info">
+          <h1 class="product-title">SUETER AFFLICTION EDITION MOTORHEAD</h1>
+
+          <div class="price-container">
+            <span class="current-price">$19.99 USD</span>
+            <span class="taxes">+ Impuestos</span>
+          </div>
+
+          <div class="product-description">
+            La prenda que se muestra en la imagen es una camisa tipo polo para
+            hombre de la marca Affliction, identificada específicamente como
+            "Camisa Affliction Blanca", con un precio de venta de $19.99. Es una
+            camiseta de manga corta en color blanco o crudo, confeccionada
+            comúnmente en algodón. Presenta un cuello tipo polo y una tapeta
+            frontal con tres botones. El diseño se caracteriza por gráficos
+            intrincados y detallados, típicos del estilo gótico, motociclismo o
+            MMA de Affliction; en este caso, se aprecia un motivo prominente en
+            la parte superior del pecho derecho (desde la perspectiva del
+            usuario) que incluye cruces estilizadas y adornos en tonos
+            marrones/tierra. Además de estos gráficos, las prendas de la marca a
+            menudo incorporan costuras expuestas, parches y tratamientos de
+            lavado especiales para lograr un aspecto "vintage" o desgastado.
+          </div>
+
+          <!-- Sección de Color -->
+          <div class="color-section">
+            <div class="color-title">COLOR</div>
+            <div class="color-text">BLANCO CON ESTAMPADO</div>
+          </div>
+
+          <button class="add-to-cart">AÑADIR AL CARRITO</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 SNEAKPEAK. Todos los derechos reservados.</p>
+        <p>Contacto: info@sneakpeak.com | Tel: +507 6875 9345</p>
+      </div>
+    </footer>
+  </body>
+</html>
